@@ -22,9 +22,8 @@ class CcSocket {
    * @param {string} commandString 
    * @returns {Promise<[*, *]>}
    */
-  command(commandString) {
-      this.socket.send(commandString);
-  
+  send(SendData) {
+      this.socket.send(SendData);
       return new Promise(resolve => {
           this.socket.once('message', message => {
               resolve(JSON.parse(message));
